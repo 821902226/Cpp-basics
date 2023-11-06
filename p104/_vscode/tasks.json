@@ -1,0 +1,29 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "cppbuild",
+			"label": "build",
+			"command": "/usr/bin/clang++",
+			"args": [
+				"${file}", //指定要编译的是当前文件
+                "-o", //指定输出文件的路径和名称
+                "${fileDirname}/exe/${fileBasenameNoExtension}.exe", //承接上一步的-o，让可执行文件输出到源码文件所在的文件夹下的bin文件夹内，并且让它的名字和源码文件相同
+                "-g", //生成和调试有关的信息
+                "-Wall", // 开启额外警告
+                "-std=c++17" // 语言标准，可根据自己的需要进行修改，写c++要换成c++的语言标准，比如c++11
+			],
+			"options": {
+				"cwd": "${fileDirname}"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"detail": "编译器: /usr/bin/clang++"
+		}
+	]
+}
